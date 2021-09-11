@@ -3,7 +3,7 @@ import axios from 'axios';
 import Chart from 'react-apexcharts';
 import { BASE_URL } from 'utils/requests';
 import { SaleSuccess } from 'types/sale';
-import { round } from 'utils/math-round';
+import { round } from 'utils/fortmatters';
 
 type SeriesData = {
     name: string;
@@ -59,7 +59,7 @@ function BarChart() {
     return (
         <Chart
             options={{ ...options, xaxis: chartData.labels }}
-            series={chartData.series}
+            series={chartData.series} 
             type="bar"
             height="240"
         />
