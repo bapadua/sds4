@@ -25,7 +25,7 @@ public class SaleController {
         return ResponseEntity.ok(saleService.find(pageable));
     }
 
-    @GetMapping("/sum-by-seller")
+    @GetMapping("/amount-by-seller")
     public ResponseEntity<List<SaleSumDTO>> amountBySeller() {
         return ResponseEntity.ok(saleService.amountBySeller());
     }
