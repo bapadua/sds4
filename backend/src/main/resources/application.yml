@@ -1,7 +1,6 @@
-
 spring:
   profiles:
-    active: test
+    active: ${APP_PROFILE:test}
 
 ---
 
@@ -26,5 +25,38 @@ spring:
         format_sql: true
 
 ---
+
+spring:
+  profiles: dev
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/dsvendas
+    username: postgres
+    password: postgres
+
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        ddl-auto: none
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+---
+
+spring:
+  profiles: prod
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+
+  jpa:
+    open-in-view: false
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
 
 
